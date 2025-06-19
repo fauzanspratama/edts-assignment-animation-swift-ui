@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExplicitView: View {
-    @State private var scale: CGFloat = 0
+    @State private var scale: CGFloat = 1
     @State private var color: Color = .blue
     @State private var rotate: Angle = .zero
     @State private var offset: CGFloat = .zero
@@ -46,13 +46,14 @@ struct ExplicitView: View {
             
             Button(action: {
                 withAnimation(Animation.timingCurve(1, -0.4, 0.35, 0.95, duration: 1)) {
+                    
                     if offset == -100 {
                         offset = .zero
                     } else {
                         offset = offset == .zero ? 100 : -100
                     }
                     
-                    scale = scale == 1 ? 1.2 : 1
+                    scale = scale == 1 ? 1.5 : 1
                     color = color == .blue ? .yellow : .blue
                     rotate += .degrees(360)
                 }
